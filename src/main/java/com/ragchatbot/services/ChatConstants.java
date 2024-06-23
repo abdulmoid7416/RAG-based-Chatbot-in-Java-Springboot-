@@ -1,7 +1,7 @@
 package com.ragchatbot.services;
 
 public interface ChatConstants {
-  String COLLECTION_NAME = "world_history_collection";
+  String COLLECTION_NAME = "Ottoman History";
   Integer QDRANT_GRPC_PORT = 6334;
   Integer OPENAI_EMBEDDING_SIZE = 1536;
   String QDRANT_GRPC_HOST = System.getenv("QDRANT_GRPC_HOST");

@@ -4,6 +4,7 @@ import com.ragchatbot.services.ChatService;
 import com.ragchatbot.dtos.ChatRequest;
 import com.ragchatbot.dtos.ChatResponse;
 import com.ragchatbot.services.DataIngestionService;
+import jakarta.annotation.PreDestroy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -39,5 +40,10 @@ public class ChatController {
   @PostMapping("/setup")
   public void processMsg() {
     dataIngestionService.setupRagChatbot();
+  }
+
+  @PreDestroy
+  public void cleanup() {
+    this.dataIngestionService.close();
   }
 }

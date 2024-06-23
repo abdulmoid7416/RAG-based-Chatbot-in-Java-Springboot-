@@ -27,9 +27,17 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class DataIngestionService {
-
+  private QdrantClient qdrantClient;
   public void setupRagChatbot() {
-    insertDocuments();
+    this.qdrantClient = this.getQdrantClient();
+    this.createCollection();
+    this.insertDocuments();
+  }
+
+  public void close() {
+    if (this.qdrantClient != null) {
+      this.qdrantClient.close();
+    }
   }
 
   private QdrantClient getQdrantClient() {

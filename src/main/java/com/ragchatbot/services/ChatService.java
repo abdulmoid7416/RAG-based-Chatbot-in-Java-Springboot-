@@ -7,8 +7,6 @@ import org.springframework.stereotype.Component;
 @Component
 public class ChatService {
 
-  @Autowired
-  BasicRagService basicRagService;
 
   @Autowired
   AdvancedRagService advancedRagService;
